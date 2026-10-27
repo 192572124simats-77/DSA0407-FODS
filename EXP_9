@@ -1,0 +1,16 @@
+
+import pandas as pd
+
+property_data = pd.DataFrame({
+    'ID': [101, 102, 103, 104],
+    'Location': ['Chennai', 'Hyderabad', 'Chennai', 'Vijayawada'],
+    'Bedrooms': [3, 5, 4, 6],
+    'Area': [1200, 2000, 1500, 2500],
+    'Price': [5000000, 8000000, 6000000, 9000000]
+})
+
+print(property_data.groupby('Location')['Price'].mean())
+print("More than 4 bedrooms:",
+      (property_data['Bedrooms'] > 4).sum())
+print("Largest property:")
+print(property_data.loc[property_data['Area'].idxmax()])
