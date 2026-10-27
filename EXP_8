@@ -1,0 +1,12 @@
+import pandas as pd
+
+d = pd.DataFrame({
+    'Product': ['Pen', 'Book', 'Pen', 'Bag', 'Book', 'Pencil'],
+    'Qty': [10, 5, 20, 8, 15, 12],
+    'Date': pd.to_datetime(['2026-10-02', '2026-10-05',
+                            '2026-10-10', '2026-10-12',
+                            '2026-10-15', '2026-10-20'])
+})
+
+d = d[d['Date'] >= '2026-10-01']
+print(d.groupby('Product')['Qty'].sum().nlargest(5))
