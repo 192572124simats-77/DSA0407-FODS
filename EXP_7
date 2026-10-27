@@ -1,0 +1,13 @@
+import pandas as pd
+
+d = pd.DataFrame({
+    'Customer': [101, 102, 101, 103],
+    'Date': pd.to_datetime(['2026-01-05', '2026-01-10',
+                            '2026-02-15', '2026-02-20']),
+    'Product': ['Pen', 'Book', 'Pen', 'Bag'],
+    'Qty': [2, 4, 6, 1]
+})
+
+print(d.groupby('Customer').size())
+print(d.groupby('Product')['Qty'].mean())
+print(d['Date'].min(), d['Date'].max())
